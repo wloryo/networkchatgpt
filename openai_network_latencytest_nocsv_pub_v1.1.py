@@ -14,6 +14,8 @@ import numpy
 deployment_name = "<your input>"
 # The base URL for your Azure OpenAI resource. e.g. "https://<your resource name>.openai.azure.com"
 openai_api_base = "https://<your input>.openai.azure.com"
+# Get the Azure OpenAI endpoint IP, same url as the API url
+peip = socket.getaddrinfo("<your input>.openai.azure.com",443)
 # The API key for your Azure OpenAI resource.
 openai_api_key = "<your input>"
 # Example prompt for request payload
@@ -26,7 +28,6 @@ openai_api_version = "2022-12-01"
 
 devicename = socket.gethostname()
 ip = socket.gethostbyname(devicename)
-peip = socket.getaddrinfo("yosemite-openai.openai.azure.com",443)
 
 # Request URL
 api_url = f"{openai_api_base}/openai/deployments/{deployment_name}/completions?api-version={openai_api_version}"
